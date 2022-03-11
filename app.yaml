@@ -1,0 +1,23 @@
+service: angular
+runtime: python27
+api_version: 1
+threadsafe: true
+handlers:
+  - url: /
+    static_files: dist/employee-management/index.html
+    upload: dist/employee-management/index.html
+  - url: /
+    static_dir: dist/employee-management
+skip_files:
+  - e2e/
+  - node_modules/
+  - src/
+  - coverage
+  - ^(.*/)?\..*$
+  - ^(.*/)?.*\.json$
+  - ^(.*/)?.*\.md$
+  - ^(.*/)?.*\.yaml$
+  - ^LICENSE
+manual_scaling:
+   min_instances: 1
+   max_instances: 1
